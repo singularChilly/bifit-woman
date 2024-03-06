@@ -1,6 +1,65 @@
-<svg width="64" height="16" viewBox="0 0 64 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5 2H3V3H2V5H1V10H2V12H3V13H5V14H10V13H12V12H13V10H14V5H13V3H12V2H10V1H5V2Z" fill="#FFFF00"/>
-<path d="M17 5V10H18V12H19V13H21V14H26V13H28V12H29V10H27V9H24V8H21V7H24V6H27V5H29V3H28V2H26V1H21V2H19V3H18V5H17Z" fill="#FFFF00"/>
-<path d="M33 5V10H34V12H35V13H37V14H42V12H41V11H40V10H39V9H38V8H37V7H38V6H39V5H40V4H41V3H42V1H37V2H35V3H34V5H33Z" fill="#FFFF00"/>
-<path d="M49 5V10H50V12H51V13H53V14H58V13H60V12H61V10H59V9H56V8H53V7H56V6H59V5H61V3H60V2H58V1H53V2H51V3H50V5H49Z" fill="#FFFF00"/>
+<?xml version="1.0"?>
+<svg width="64" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect fill="none" height="0.13" id="svg_31" stroke="#e02121" stroke-linecap="round" width="0" x="-14.09" y="15.38"/>
+  <g id="svg_55" transform="rotate(-90.0487 7.74444 7.88974)">
+   <path d="m4.74,2.39l-2,0l0,1l-1,0l0,2l-1,0l0,5l1,0l0,2l1,0l0,1l2,0l0,1l5,0l0,-1l2,0l0,-1l1,0l0,-2l1,0l0,-5l-1,0l0,-2l-1,0l0,-1l-2,0l0,-1l-5,0l0,1z" fill="#FFFF00" id="svg_1"/>
+   <line fill="none" id="svg_7" opacity="0.5" stroke="#000000" stroke-width="5" x1="12.43" x2="12.43" y1="7.88" y2="7.88"/>
+   <line fill="none" id="svg_8" stroke="#e02121" x1="12.17" x2="14.22" y1="3.39" y2="11.34"/>
+   <line fill="none" id="svg_9" stroke="#d82424" x1="11.16" x2="14.75" y1="11.32" y2="2.34"/>
+   <line fill="none" id="svg_10" opacity="0.5" stroke="#d82424" x1="13.45" x2="13.45" y1="4.29" y2="4.29"/>
+   <line fill="none" id="svg_11" points="null" stroke="#d82424" x1="11.15" x2="14.11" y1="11.17" y2="10.87"/>
+   <line fill="none" id="svg_12" x1="12.55" x2="13.88" y1="4.05" y2="3.52"/>
+   <polyline fill="none" id="svg_13" points="12.81777799129486,3.6533313989639282 13.617800116539001,3.3571537733078003 14.164422392845154,2.823820471763611 " stroke="#d82424" stroke-linecap="round"/>
+   <path d="m12.82,9.29c0.46,-0.66 0.67,-0.05 -0.13,0.6l-0.83,0.46" fill="none" id="svg_14" stroke="#d82424"/>
+   <polyline fill="none" id="svg_15" points="12.8178 4.45333 13.4796 4.50524" stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_16" points="13.084444165229797,10.586664319038391 13.084444165229797,9.5838862657547 13.008710980415344,8.731197476387024 " stroke="#d82424" stroke-linecap="round"/>
+   <path d="m7.81,13.91c0,-0.44 0.13,-1.25 -0.38,-1.73l-0.32,0.69l-0.36,0.67" fill="none" id="svg_32" stroke="#e02121" stroke-linecap="round"/>
+  </g>
+  <g id="svg_56" transform="rotate(-89.5587 24.1393 7.4)">
+   <path d="m25.6,1.4l-5,0l0,1l-2,0l0,1l-1,0l0,2l-1,0l0,5l1,0l0,2l1,0l0,1l2,0l0,-2l1,0l0,-3l1,0l0,-3l1,0l0,3l1,0l0,3l1,0l0,2l2,0l0,-1l1,0l0,-2l1,0l0,-5l-1,0l0,-2l-1,0l0,-1l-2,0l0,-1z" fill="#FFFF00" id="svg_2"/>
+   <line fill="none" id="svg_18" stroke="#d82424" x1="28.09" x2="31.68" y1="12.25" y2="3.28"/>
+   <line fill="none" id="svg_19" stroke="#e02121" x1="28.3" x2="30.36" y1="3.79" y2="11.74"/>
+   <polyline fill="none" id="svg_20" points="29.217776775360107,11.519997954368591 29.217776775360107,10.5172199010849 29.142043590545654,9.664531111717224 " stroke="#d82424" stroke-linecap="round"/>
+   <line fill="none" id="svg_21" points="null" stroke="#d82424" x1="27.81" x2="30.77" y1="11.83" y2="11.54"/>
+   <polyline fill="none" id="svg_22" points="29.617801189422607,6.319997191429138 30.27959966659546,6.371907114982605 " stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_23" points="29.351111888885498,4.186664938926697 30.151132106781006,3.890487551689148 30.697755336761475,3.3571537733078003 " stroke="#d82424" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_24" points="29.084466457366943,6.586663603782654 29.746264934539795,6.638573527336121 " stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_25" points="29.35113286972046,4.186663746833801 30.012933254241943,5.438573718070984 " stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_26" points="28.951133251190186,4.0533305406570435 29.61293363571167,4.10524046421051 " stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_27" points="29.217801570892334,5.1199973821640015 29.87960195541382,5.171907305717468 " stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_28" points="29.217801570892334,5.653331160545349 29.87960195541382,5.705240607261658 " stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_29" points="30.15113401412964,4.186664938926697 30.812934398651123,4.238573908805847 " stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_30" points="30.15113592147827,4.853331923484802 30.812936305999756,4.905240416526794 " stroke="#e02121" stroke-linecap="round"/>
+   <path d="0" fill="none" id="svg_33" stroke="#ed2121"/>
+   <path fill="none" id="svg_34" stroke="#ed2121"/>
+   <line fill="none" id="svg_35" stroke="#ed2121" x1="19.95" x2="20.88" y1="13.38" y2="11.51"/>
+   <line fill="none" id="svg_36" x1="25.68" x2="24.75" y1="13.11" y2="11.38"/>
+   <line fill="none" id="svg_37" stroke="#e03131" x1="25.41" x2="25.01" y1="13.24" y2="11.24"/>
+  </g>
+  <g id="svg_57" transform="matrix(1 0 0 1 0 0) rotate(-89.559 40.3581 6.96667)">
+   <path d="m41.87,2.47l-5,0l0,1l-2,0l0,1l-1,0l0,2l-1,0l0,5l2,0l0,-1l1,0l0,-1l1,0l0,-1l1,0l0,-1l1,0l0,-1l1,0l0,1l1,0l0,1l1,0l0,1l1,0l0,1l1,0l0,1l2,0l0,-5l-1,0l0,-2l-1,0l0,-1l-2,0l0,-1z" fill="#FFFF00" id="svg_3"/>
+   <line fill="none" id="svg_38" stroke="#e03131" x1="33.01" x2="35.95" y1="11.38" y2="10.58"/>
+   <line fill="none" id="svg_39" stroke="#e03131" x1="45.15" x2="42.88" y1="11.38" y2="10.18"/>
+   <line fill="none" id="svg_40" stroke="#e03131" x1="44.08" x2="46.88" y1="3.78" y2="9.38"/>
+   <line fill="none" id="svg_41" x1="45.81" x2="45.15" y1="3.91" y2="9.51"/>
+   <line fill="none" id="svg_43" stroke="#e03131" transform="rotate(59.5769 45.6466 6.50406)" x1="43.31" x2="47.98" y1="5.32" y2="7.69"/>
+  </g>
+  <g id="svg_58" transform="rotate(-91.5362 55.4793 7.93333)">
+   <path d="m57.87,1.93l-5,0l0,1l-2,0l0,1l-1,0l0,2l-1,0l0,5l1,0l0,2l1,0l0,1l2,0l0,-2l1,0l0,-3l1,0l0,-3l1,0l0,3l1,0l0,3l1,0l0,2l2,0l0,-1l1,0l0,-2l1,0l0,-5l-1,0l0,-2l-1,0l0,-1l-2,0l0,-1z" fill="#FFFF00" id="svg_4"/>
+   <line fill="none" id="svg_42" x1="48.48" x2="47.81" y1="6.04" y2="11.64"/>
+   <line fill="none" id="svg_44" stroke="#e02121" x1="60.17" x2="62.22" y1="4.19" y2="12.14"/>
+   <line fill="none" id="svg_45" stroke="#d82424" x1="59.56" x2="63.15" y1="12.38" y2="3.41"/>
+   <polyline fill="none" id="svg_46" points="61.48444163799286,11.786664843559265 61.48444163799286,10.783886790275574 61.142038226127625,9.931198000907898 " stroke="#d82424" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_47" points="60.95110499858856,11.91999900341034 60.95110499858856,10.917220950126648 60.60870540142059,10.064532160758972 " stroke="#d82424" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_48" points="59.88446605205536,11.91999900341034 60.54627025127411,11.971907496452332 " stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_49" points="61.08446681499481,5.25333297252655 61.74627101421356,5.4385746717453 " stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_50" points="61.08446681499481,6.053333163261414 61.74627101421356,6.238575339317322 " stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_51" points="60.95113551616669,4.5866652727127075 61.612932085990906,4.6385737657547 " stroke="#e02121" stroke-linecap="round"/>
+   <polyline fill="none" id="svg_52" points="61.484472155570984,4.319998860359192 62.1462687253952,4.371907353401184 " stroke="#e02121" stroke-linecap="round"/>
+   <line fill="none" id="svg_53" stroke="#e02121" stroke-linecap="round" x1="52.61" x2="53.41" y1="13.78" y2="12.04"/>
+   <line fill="none" id="svg_54" stroke="#e02121" stroke-linecap="round" x1="57.95" x2="57.41" y1="13.91" y2="12.18"/>
+  </g>
+ </g>
 </svg>

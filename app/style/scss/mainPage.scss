@@ -10,7 +10,7 @@ body {
 }
 
 .overflow-mask {
-  background-color: $black;
+  background-color: $blue;
   color: $white;
   display: flex;
   height: 100vh;
@@ -62,6 +62,44 @@ body {
   }
 }
 
+.march-8 {
+  color: red;
+}
+
+.congratulation-block {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  user-select: none;
+  visibility: hidden;
+  width: 80%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity .8s;
+}
+
+.congratulation-top-text {
+  padding: 8px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  border-radius: 10px;
+  color: #2E72B9;
+  background: white;
+}
+
+.congratulation-text {
+  text-shadow: black 1px 0 80px;
+  line-height: 35px;
+}
+
+.flowers {
+  height: 300px;
+}
+
 .paused-text {
   align-items: center;
   display: flex;
@@ -86,9 +124,15 @@ body {
   }
 
   @keyframes blink {
-    0% {opacity: 0}
-    49% {opacity: 0}
-    50% {opacity: 1}
+    0% {
+      opacity: 0
+    }
+    49% {
+      opacity: 0
+    }
+    50% {
+      opacity: 1
+    }
   }
 
   .row {
@@ -102,6 +146,10 @@ body {
 
     ._50 {
       width: 50%;
+    }
+
+    ._100 {
+      width: 100%;
     }
 
     .column {
@@ -144,7 +192,7 @@ body {
 }
 
 .loading-cover {
-  background: $yellow;
+  background: $blue;
   height: 100vh;
   position: absolute;
   top: 0;
@@ -181,12 +229,27 @@ body {
   margin-top: 25vh;
 }
 
+.logo-text {
+  text-shadow: $pink 7px 7px;
+  margin-top: 25vh;
+  font-size: 130px;
+}
+
+.logo-text-alternative {
+  color: $pink;
+  font-size-adjust: none;
+  background: white;
+  padding: 40px 20px 20px 40px;
+  margin-top: 25vh;
+  font-size: 130px;
+}
+
 .game-start {
-  background-color: $logo-yellow;
-  border: 5px solid $logo-black;
+  background-color: $pink;
+  border: 5px solid $white;
   border-radius: 10px;
   box-shadow: 5px 5px $logo-red;
-  color: $logo-black;
+  color: $white;
   cursor: pointer;
   font-size: 48px;
   outline: none;
@@ -202,9 +265,31 @@ body {
   }
 }
 
+.continue-game {
+  background-color: $pink;
+  border: 5px solid $white;
+  border-radius: 10px;
+  box-shadow: 5px 5px $logo-red;
+  color: $white;
+  cursor: pointer;
+  font-size: 48px;
+  outline: none;
+  padding: 16px;
+  visibility: hidden;
+
+  &:active {
+    box-shadow: none;
+    transform: translateX(5px) translateY(5px);
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
 .loading-container {
-  background-color: $black;
-  border: 5px solid $blue;
+  background-color: $blue;
+  border: 5px solid $white;
   border-radius: 10px;
   height: 48px;
   left: 50%;
@@ -218,7 +303,7 @@ body {
 
 .loading-pacman {
   animation: loading-animation .3s steps(4) infinite;
-  background-color: $black;
+  background-color: $blue;
   background-image: url('../app/style/graphics/spriteSheets/characters/pacman/pacman_right.svg');
   background-size: 192px;
   border-radius: 10px;
@@ -236,7 +321,7 @@ body {
 }
 
 .loading-dot-mask {
-  background-color: $black;
+  background-color: $blue;
   border-radius: 10px;
   height: 48px;
   left: 0;
@@ -248,11 +333,11 @@ body {
 
 .loading-dot {
   background-image: url('../app/style/graphics/spriteSheets/pickups/pacdot.svg');
-  height: 6px;
+  height: 15px;
+  width: 15px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 6px;
   z-index: -2;
 }
 
@@ -294,9 +379,9 @@ body {
 
   button {
     background: transparent;
-    border: 3px solid $blue;
+    border: 3px $white;
     border-radius: 5px;
-    color: $blue;
+    color: $white;
     height: 7vh;
     outline: none;
     padding: 0;
@@ -304,7 +389,7 @@ body {
 
     &:active {
       background: radial-gradient(
-        closest-side, $transparent-gray, transparent,
+                      closest-side, $transparent-gray, transparent,
       );
     }
   }
@@ -347,7 +432,7 @@ body {
 }
 
 .error-message {
-  color: $logo-black;
+  color: $blue;
   opacity: 0;
   position: absolute;
   top: 30vh;

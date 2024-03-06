@@ -11,11 +11,16 @@ class GameCoordinator {
     this.fruitDisplay = document.getElementById('fruit-display');
     this.mainMenu = document.getElementById('main-menu-container');
     this.gameStartButton = document.getElementById('game-start');
+    this.continueGameButton = document.getElementById('continue-game');
+    this.continueGameRestoreLiveButton = document.getElementById('continue-game_restore-live');
+    this.march8CongratulationTopText = document.getElementById('march-8_congratulation-top-text');
     this.pauseButton = document.getElementById('pause-button');
     this.soundButton = document.getElementById('sound-button');
     this.leftCover = document.getElementById('left-cover');
     this.rightCover = document.getElementById('right-cover');
     this.pausedText = document.getElementById('paused-text');
+    this.congratulationBlock = document.getElementById('congratulation-block');
+    this.congratulationBlockHtml = document.getElementById('congratulation-block-html');
     this.bottomRow = document.getElementById('bottom-row');
     this.movementButtons = document.getElementById('movement-buttons');
 
@@ -92,6 +97,15 @@ class GameCoordinator {
       'click',
       this.startButtonClick.bind(this),
     );
+    this.continueGameButton.addEventListener(
+      'click',
+      this.continueButtonClick.bind(this),
+    );
+
+    this.continueGameRestoreLiveButton.addEventListener(
+      'click',
+      this.continueGameRestoreLiveButtonClick.bind(this),
+    );
     this.pauseButton.addEventListener('click', this.handlePauseKey.bind(this));
     this.soundButton.addEventListener(
       'click',
@@ -158,6 +172,42 @@ class GameCoordinator {
       this.init();
     }
     this.startGameplay(true);
+  }
+
+  continueButtonClick() {
+    this.gameUi.style.filter = 'unset';
+    this.movementButtons.style.filter = 'unset';
+    this.congratulationBlock.style.opacity = 0;
+    this.congratulationBlock.style.visibility = 'hidden';
+    this.activeTimers.forEach((timer) => {
+      timer.resume();
+    });
+    this.startGameplay();
+  }
+
+  continueGameRestoreLiveButtonClick() {
+    this.gameUi.style.filter = 'unset';
+    this.movementButtons.style.filter = 'unset';
+    this.congratulationBlock.style.opacity = 0;
+    this.congratulationBlock.style.visibility = 'hidden';
+    this.activeTimers.forEach((timer) => {
+      timer.resume();
+    });
+
+    new Timer(() => {
+      this.mazeCover.style.visibility = 'visible';
+      new Timer(() => {
+        this.allowKeyPresses = true;
+        this.mazeCover.style.visibility = 'hidden';
+        this.pacman.reset();
+        this.ghosts.forEach((ghost) => {
+          ghost.reset();
+        });
+        this.fruit.hideFruit();
+
+        this.startGameplay();
+      }, 500);
+    }, 2250);
   }
 
   /**
@@ -286,7 +336,7 @@ class GameCoordinator {
         `${imgBase}maze/maze_blue.svg`,
 
         // Misc
-        'app/style/graphics/extra_life.svg',
+        'app/style/graphics/extra_life_1.svg',
       ];
 
       const audioBase = 'app/style/audio/';
@@ -294,6 +344,7 @@ class GameCoordinator {
         `${audioBase}game_start.mp3`,
         `${audioBase}pause.mp3`,
         `${audioBase}pause_beat.mp3`,
+        `${audioBase}grac.mp3`,
         `${audioBase}siren_1.mp3`,
         `${audioBase}siren_2.mp3`,
         `${audioBase}siren_3.mp3`,
@@ -393,6 +444,7 @@ class GameCoordinator {
     this.points = 0;
     this.level = 1;
     this.lives = 2;
+    this.restoreLife = 0;
     this.extraLifeGiven = false;
     /** ���������� ����� */
     this.remainingDots = 0;
@@ -472,6 +524,7 @@ class GameCoordinator {
     this.eyeGhosts = 0;
 
     if (this.firstGame) {
+      this.march8CongratulationTopText.innerHTML = '<p class="congratulation-top-text">Поздравляем с <span class="march-8">8 марта</span>!</p>';
       this.drawMaze(this.mazeArray, this.entityList);
       this.soundManager = new SoundManager();
       this.setUiDimensions();
@@ -635,7 +688,7 @@ class GameCoordinator {
 
     for (let i = 0; i < this.lives; i += 1) {
       const extraLifePic = document.createElement('img');
-      extraLifePic.setAttribute('src', 'app/style/graphics/extra_life.svg');
+      extraLifePic.setAttribute('src', 'app/style/graphics/extra_life_1.svg');
       extraLifePic.style.height = `${this.scaledTileSize * 2}px`;
       this.extraLivesDisplay.appendChild(extraLifePic);
     }
@@ -848,7 +901,6 @@ class GameCoordinator {
       });
       this.pacman.prepDeathAnimation();
       this.soundManager.play('death');
-
       if (this.lives > 0) {
         this.lives -= 1;
 
@@ -867,7 +919,35 @@ class GameCoordinator {
           }, 500);
         }, 2250);
       } else {
-        this.gameOver();
+        if (this.restoreLife === 0) {
+          this.restoreLife += 1;
+          this.congratulationBlockHtml.innerHTML = "<p class=\"congratulation-text\">" +
+              "Хорошо-хорошо, выдаю вам ещё одну жизнь!</p>";
+          this.gameUi.style.filter = 'blur(15px)';
+          this.movementButtons.style.filter = 'blur(15px)';
+          this.congratulationBlock.style.opacity = 1;
+          this.congratulationBlock.style.visibility = 'visible';
+          this.activeTimers.forEach((timer) => {
+            timer.pause();
+          });
+          this.continueGameButton.style.visibility = 'hidden';
+          this.continueGameRestoreLiveButton.style.visibility = 'visible';
+        } else if (this.restoreLife === 1) {
+          this.restoreLife += 1;
+          this.congratulationBlockHtml.innerHTML = "<p class=\"congratulation-text\">" +
+              "Так, это уже точно последняя...</p>";
+          this.gameUi.style.filter = 'blur(15px)';
+          this.movementButtons.style.filter = 'blur(15px)';
+          this.congratulationBlock.style.opacity = 1;
+          this.congratulationBlock.style.visibility = 'visible';
+          this.activeTimers.forEach((timer) => {
+            timer.pause();
+          });
+          this.continueGameButton.style.visibility = 'hidden';
+          this.continueGameRestoreLiveButton.style.visibility = 'visible';
+        } else {
+          this.gameOver();
+        }
       }
     }, 750);
   }
@@ -912,11 +992,25 @@ class GameCoordinator {
 
     this.soundManager.playDotSound();
 
+    if (this.remainingDots === 210) {
+      this.march8CongratulationTopText.innerHTML = '<p class="congratulation-top-text"><span class="march-8">Любви</span> любвеобильной!</p>';
+    }
+
     if (this.remainingDots === 174 || this.remainingDots === 74) {
+      if (this.remainingDots === 174) {
+        this.march8CongratulationTopText.innerHTML = '<p class="congratulation-top-text"><span class="march-8">Здоровья</span> здорового!</p>';
+      } else {
+        this.march8CongratulationTopText.innerHTML = '<p class="congratulation-top-text"><span class="march-8">Весенней</span> весны!</p>';
+      }
       this.createFruit();
     }
 
     if (this.remainingDots === 40 || this.remainingDots === 20) {
+      if (this.remainingDots === 40) {
+        this.march8CongratulationTopText.innerHTML = '<p class="congratulation-top-text"><span class="march-8">Красоты</span> красивой!</p>';
+      } else {
+        this.march8CongratulationTopText.innerHTML = '<p class="congratulation-top-text"><span class="march-8">Желанности</span> желанной!</p>';
+      }
       this.speedUpBlinky();
     }
 
@@ -1007,6 +1101,46 @@ class GameCoordinator {
                   this.mazeCover.style.visibility = 'visible';
                   new Timer(() => {
                     this.mazeCover.style.visibility = 'hidden';
+                    if (this.level === 1) {
+                      this.congratulationBlockHtml.innerHTML = "<p class=\"congratulation-text\">" +
+                          "Дорогие девушки!<br><br>" +
+                          "От всего мужского коллектива BIFIT поздравляем вас с первым весенним праздником – Международным женским днем  <span class=\"march-8\">8 Марта</span>!<br><br>" +
+                          "От всей души желаем вам счастья, успехов во всех начинаниях, мира и спокойствия в семье! Пусть близкие и друзья окружают вниманием и в будни, и в праздники.<br><br>" +
+                          "Пусть в жизни вас всегда сопровождают любовь и уважение, семейное согласие и благополучие.<br><br>" +
+                          "Будьте счастливы и любимы!</p>" +
+                          "<img id='flowers' class='flowers' src='app/style/graphics/spriteSheets/8march/icegif-4143.gif'>";
+                    } else if (this.level === 2) {
+                      this.congratulationBlockHtml.innerHTML = "<p class=\"congratulation-text\">" +
+                          "Милые наши, прекрасные коллеги! Наконец наступила весна и пришел первый весенний праздник!<br>" +
+                          "И он принадлежит вам! Надеемся, что молодой и веселый март даст вам много поводов для улыбок и смеха, прогнав из сердца остатки зимнего холода! А нас ваши глаза согревают и в мороз!<br>" +
+                          "От всей души желаем вам быть счастливыми, радостными, удачливыми во всем! Имейте крепчайшее здоровье и вдохновляйте нас своим присутствием!</p>" +
+                          "<img id='flowers' class='flowers' src='app/style/graphics/spriteSheets/8march/1.png'>";
+                    } else if (this.level === 3) {
+                      this.congratulationBlockHtml.innerHTML = "<p class=\"congratulation-text\">" +
+                          "Девчата, с праздником весны!<br>" +
+                          "Сегодня вы еще красивей!<br>" +
+                          "Вы исполнительны, честны<br>" +
+                          "И так прекрасны, нам на диво!<br><br>" +
+
+                          "Рабочий долгий, сложный день<br>" +
+                          "Улыбки ваши украшают,<br>" +
+                          "Бледнеет вмиг любая тень,<br>" +
+                          "Когда глаза ваши сияют!<br><br>" +
+
+                          "От всего сердца скажем вам:<br>" +
+                          "Пускай печали вас обходят,<br>" +
+                          "Пусть будет весело сердцам,<br>" +
+                          "Любовь и мир в них верховодят!</p>" +
+                          "<img id='flowers' class='flowers' src='app/style/graphics/spriteSheets/8march/3.png'>";
+                    } else {
+                      this.congratulationBlockHtml.innerHTML = "<p class=\"congratulation-text\">" +
+                          "На этом наши полномочия всё... окончены!<br><br>" +
+                          "С <span class=\"march-8\">8 Марта</span>, милые наши девушки!</p>" +
+                          "<img id='flowers' class='flowers' src='app/style/graphics/spriteSheets/8march/3.png'>";
+                    }
+                    this.continueGameButton.style.visibility = 'visible';
+                    this.continueGameRestoreLiveButton.style.visibility = 'hidden';
+
                     this.level += 1;
                     this.allowKeyPresses = true;
                     this.entityList.forEach((entity) => {
@@ -1025,7 +1159,18 @@ class GameCoordinator {
                         this.remainingDots += 1;
                       }
                     });
-                    this.startGameplay();
+
+                    this.cutscene = false;
+                    this.soundManager.setCutscene(this.cutscene);
+                    this.soundManager.stopAmbience();
+                    this.soundManager.setAmbience('grac', true);
+                    this.gameUi.style.filter = 'blur(15px)';
+                    this.movementButtons.style.filter = 'blur(15px)';
+                    this.congratulationBlock.style.opacity = 1;
+                    this.congratulationBlock.style.visibility = 'visible';
+                    this.activeTimers.forEach((timer) => {
+                      timer.pause();
+                    });
                   }, 500);
                 }, 250);
               }, 250);
